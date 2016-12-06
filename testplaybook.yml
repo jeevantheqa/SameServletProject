@@ -11,7 +11,7 @@
 
     - name: Move file
       command: chdir=/usr/local rm -rf tomcat8
-      command: mv apache-tomcat-8.5.8 tomcat8
+      command: chdir=/usr/local  mv apache-tomcat-8.5.8 tomcat8
 
     - name: Start Tomcat
       command: source ~/.bashrc
