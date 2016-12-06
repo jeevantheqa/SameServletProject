@@ -10,12 +10,7 @@
       command: chdir=/usr/local tar xvf apache-tomcat-8.5.8.tar.gz 
 
     - name: Move file
-<<<<<<< HEAD
-      copy: src=/usr/local/apache-tomcat-8.5.8 dest=/usr/local/tomcat8/
-=======
-      command: chdir=/usr/local rm -rf tomcat8
       command: chdir=/usr/local  mv apache-tomcat-8.5.8 tomcat8
->>>>>>> 72cb85a89b2babb12d96741854ed8803d9f4fba4
 
     - name: Start Tomcat
       command: source ~/.bashrc
