@@ -8,7 +8,11 @@
 <title>Hello</title>
 </head>
 <body>
+<<<<<<< HEAD
 <h2>Hi Test!</h2>
+=======
+<h2>Hi Jeevan!</h2>
+>>>>>>> 72cb85a89b2babb12d96741854ed8803d9f4fba4
 <br>
 <h3>Date=<%= new Date() %>
 </h3>
