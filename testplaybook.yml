@@ -1,0 +1,24 @@
+---
+
+ - hosts: test
+   user: test
+   sudo: True
+   tasks:
+    - name: Download Tomcat
+      get_url: url=http://archive.apache.org/dist/tomcat/tomcat-8/v8.5.8/bin/apache-tomcat-8.5.8.tar.gz dest=/usr/local/apache-tomcat-8.5.8.tar.gz
+    - name: Extract archive
+      command: chdir=/usr/local tar xvf apache-tomcat-8.5.8.tar.gz 
+
+    - name: Move file
+      command: chdir=/usr/local  mv apache-tomcat-8.5.8 tomcat8
+
+    - name: Start Tomcat
+      command: source ~/.bashrc
+      command: chdir=/usr/local/tomcat8 ./bin/startup.sh
+    - name: Dev War
+      copy: src=/var/lib/jenkins/workspace/Test_Dev_Build/build/SameServletProject.war dest=/usr/local/tomcat8/webapps/
+
+    - name: Restart Tomcat
+      command: chdir=/usr/local/tomcat8 ./bin/shutdown.sh
+      command: chdir=/usr/local/tomcat8 ./bin/startup.sh
+
